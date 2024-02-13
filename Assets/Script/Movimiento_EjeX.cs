@@ -40,7 +40,7 @@ public class Movimiento_EjeX : MonoBehaviour
             Grounded = false;
         }
 
-        Debug.DrawRay(transform.position, Vector3.down * 0.1f, Color.red);
+        //Debug.DrawRay(transform.position, Vector3.down * 0.1f, Color.red);
 
         if(Input.GetKeyDown(KeyCode.W) && Grounded){
             Jump();
@@ -50,11 +50,11 @@ public class Movimiento_EjeX : MonoBehaviour
         //if(Input.GetKeyDown(KeyCode.Space)){
         //    Shoot();        
         //}
+
         //Deberá esperar un tiempo mayor para permitir disparar una segunda vez
         if(Input.GetKeyDown(KeyCode.Space) && Time.time > LastShoot + 0.25f){
             Shoot();  
             LastShoot = Time.time;
-
         }
 
     }
@@ -71,7 +71,7 @@ public class Movimiento_EjeX : MonoBehaviour
         // La posición se calcula: 
         // transform.position -> centro de John
         // direction *0.1f -> offset de desplazamiento
-        GameObject bullet = Instantiate(prefabBullet,transform.position + direction *0.1f, Quaternion.identity);
+        GameObject bullet = Instantiate(prefabBullet,transform.position + direction * 0.1f, Quaternion.identity);
 
         bullet.GetComponent<BulletScript>().SetDirection(direction);
 
