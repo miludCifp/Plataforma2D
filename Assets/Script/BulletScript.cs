@@ -27,4 +27,8 @@ public class BulletScript : MonoBehaviour
         //Rigidbody2D.velocity = Vector2.right * Speed;
         Rigidbody2D.velocity = Direction * Speed;
     }
+    public void DestroyBullet()
+    {
+        Destroy(gameObject);
+    }
 }
