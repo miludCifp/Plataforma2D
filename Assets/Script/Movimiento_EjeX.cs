@@ -10,6 +10,7 @@ public class Movimiento_EjeX : MonoBehaviour
     // Start is called before the first frame update
     public float Speed;
     public float JumpForce;
+    public bool Grounded;
 
 
     void Start()
@@ -24,7 +25,15 @@ public class Movimiento_EjeX : MonoBehaviour
         // almacena -1 si pulsamos tecla a
         // almacena 0 si no pulsamos nada
         // almacena 1 si pulsamos tecla d
-        if(Input.GetKeyDown(KeyCode.W)){
+        if(Physics2D.Raycast(transform.position, Vector3.down, 0.1f)){
+            Grounded = true;
+        }else{
+            Grounded = false;
+        }
+
+        Debug.DrawRay(transform.position, Vector3.down * 0.1f, Color.red);
+
+        if(Input.GetKeyDown(KeyCode.W) && Grounded){
             Jump();
         }
     }
