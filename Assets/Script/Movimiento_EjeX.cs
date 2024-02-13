@@ -59,7 +59,7 @@ public class Movimiento_EjeX : MonoBehaviour
 
     }
     private void Shoot(){
-        // Pintamos el Prefab en scena, en la posición indicada y la rotación=0
+        // Pintamos el Prefab en scena, en la posición indicada y la rotación =0
         //Instantiate(prefabBullet,transform.position, Quaternion.identity);
 
         Vector3 direction;
