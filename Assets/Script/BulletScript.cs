@@ -6,6 +6,7 @@ public class BulletScript : MonoBehaviour
 {
     public float Speed = 2;
     private Rigidbody2D Rigidbody2D;
+    private Vector2 Direction;
     // Start is called before the first frame update
 
     void Start()
@@ -18,8 +19,12 @@ public class BulletScript : MonoBehaviour
     {
         
     }
+    public void SetDirection(Vector2 direction){
+		Direction = direction;
+    }
     private void FixedUpdate()
     {
-        Rigidbody2D.velocity = Vector2.right * Speed;
+        //Rigidbody2D.velocity = Vector2.right * Speed;
+        Rigidbody2D.velocity = Direction * Speed;
     }
 }

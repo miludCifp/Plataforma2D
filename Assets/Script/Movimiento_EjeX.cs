@@ -11,7 +11,9 @@ public class Movimiento_EjeX : MonoBehaviour
     public float Speed;
     public float JumpForce;
     public bool Grounded;
-    private Animator Animator; 
+    private Animator Animator;
+    public GameObject prefabBullet;
+    private float LastShoot;
 
 
     void Start()
@@ -29,6 +31,8 @@ public class Movimiento_EjeX : MonoBehaviour
         // almacena 1 si pulsamos tecla d
 
         Animator.SetBool("running", horizontal != 0.0f);
+    
+        ControlarDireccion();
 
         if(Physics2D.Raycast(transform.position, Vector3.down, 0.1f)){
             Grounded = true;
@@ -42,9 +46,37 @@ public class Movimiento_EjeX : MonoBehaviour
             Jump();
         }
 
-        controlarDireccion();
+        //si el juegador pulsa tecla espacio
+        //if(Input.GetKeyDown(KeyCode.Space)){
+        //    Shoot();        
+        //}
+        //Deberá esperar un tiempo mayor para permitir disparar una segunda vez
+        if(Input.GetKeyDown(KeyCode.Space) && Time.time > LastShoot + 0.25f){
+            Shoot();  
+            LastShoot = Time.time;
+
+        }
+
     }
-    private void controlarDireccion()
+    private void Shoot(){
+        // Pintamos el Prefab en scena, en la posición indicada y la rotación=0
+        //Instantiate(prefabBullet,transform.position, Quaternion.identity);
+
+        Vector3 direction;
+
+        if ( transform.localScale.x == 1.0f ) direction = Vector3.right;
+        else direction = Vector3.left;
+
+        // Pintamos el Prefab en scena, en la posición indicada y la rotación=0
+        // La posición se calcula: 
+        // transform.position -> centro de John
+        // direction *0.1f -> offset de desplazamiento
+        GameObject bullet = Instantiate(prefabBullet,transform.position + direction *0.1f, Quaternion.identity);
+
+        bullet.GetComponent<BulletScript>().SetDirection(direction);
+
+    }
+    private void ControlarDireccion()
     {
         // Controlamos la dirección donde mira el Personaje cuando
         // cambia de dirección izquierda o derecha
