@@ -11,11 +11,13 @@ public class Movimiento_EjeX : MonoBehaviour
     public float Speed;
     public float JumpForce;
     public bool Grounded;
+    private Animator Animator; 
 
 
     void Start()
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();
+        Animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -25,6 +27,9 @@ public class Movimiento_EjeX : MonoBehaviour
         // almacena -1 si pulsamos tecla a
         // almacena 0 si no pulsamos nada
         // almacena 1 si pulsamos tecla d
+
+        Animator.SetBool("running", horizontal != 0.0f);
+
         if(Physics2D.Raycast(transform.position, Vector3.down, 0.1f)){
             Grounded = true;
         }else{
@@ -35,6 +40,21 @@ public class Movimiento_EjeX : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.W) && Grounded){
             Jump();
+        }
+
+        controlarDireccion();
+    }
+    private void controlarDireccion()
+    {
+        // Controlamos la dirección donde mira el Personaje cuando
+        // cambia de dirección izquierda o derecha
+        if(horizontal < 0.0f) 
+        {
+            transform.localScale = new Vector3(-1.0f,1.0f,1.0f);
+            }
+        else if (horizontal > 0.0f) 
+        {
+            transform.localScale = new Vector3(1.0f,1.0f,1.0f);
         }
     }
     private void Jump()
