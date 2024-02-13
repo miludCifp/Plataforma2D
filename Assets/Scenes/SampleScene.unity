@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 104678820}
   - component: {fileID: 104678819}
   - component: {fileID: 104678823}
+  - component: {fileID: 104678824}
   m_Layer: 0
   m_Name: john_idle_0
   m_TagString: Untagged
@@ -266,7 +267,7 @@ Transform:
   m_GameObject: {fileID: 104678818}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.0785145, y: -0.4900334, z: 0}
+  m_LocalPosition: {x: -1.064, y: -0.527, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -284,6 +285,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c821284b252d3a84b70aeea55415767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Speed: 1
+  JumpForce: 150
+  Grounded: 0
+  prefabBullet: {fileID: 299735449005640477, guid: 9557666069ea38f49a7e75020608211a, type: 3}
+--- !u!95 &104678824
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104678818}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bf50eb744c8a21548a27ead4817bf56e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &807014852
 GameObject:
   m_ObjectHideFlags: 0
@@ -2569,6 +2595,7 @@ GameObject:
   - component: {fileID: 1269755763}
   - component: {fileID: 1269755762}
   - component: {fileID: 1269755761}
+  - component: {fileID: 1269755764}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2650,6 +2677,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1269755764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269755760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e5c396ddebf824e9137c2838d863e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  John: {fileID: 104678818}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
