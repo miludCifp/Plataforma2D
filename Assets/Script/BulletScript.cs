@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    public float Speed = 2;
+    public float Speed;
     private Rigidbody2D Rigidbody2D;
     private Vector2 Direction;
     // Start is called before the first frame update
@@ -17,7 +17,7 @@ public class BulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Rigidbody2D.velocity = Vector2.right * Speed;
     }
     public void SetDirection(Vector2 direction){
 		Direction = direction;
