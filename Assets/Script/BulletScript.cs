@@ -17,7 +17,7 @@ public class BulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Rigidbody2D.velocity = Vector2.right * Speed;
+        
     }
     public void SetDirection(Vector2 direction){
 		Direction = direction;
