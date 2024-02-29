@@ -113,7 +113,7 @@ public class JohnMovement : MonoBehaviour
 
         Debug.Log("Me has golpeado ! "+ Health);
 
-        if(Health == 0) 
+        if(Health <= 0) 
         {
             Debug.Log("Fin  "+ Health);
             Destroy(gameObject);
