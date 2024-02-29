@@ -12,6 +12,14 @@ public class BarraVida : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //barraVd.fillAmount = vidaActual / vidaMaxima;
+    }
+
+    public void restarVida(){
+        vidaActual = vidaActual - 20;
+
         barraVd.fillAmount = vidaActual / vidaMaxima;
+
+        Debug.Log("Vida actual :  " + vidaActual);
     }
 }

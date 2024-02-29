@@ -13,8 +13,9 @@ public class JohnMovement : MonoBehaviour
     public bool Grounded;
     private Animator Animator;
     public GameObject prefabBullet;
+
     private float LastShoot;
-    private int Health = 5;
+    private int Health = 100;
 
 
     void Start()
@@ -95,16 +96,28 @@ public class JohnMovement : MonoBehaviour
         Rigidbody2D.AddForce(Vector2.up * JumpForce);
     }
 
+    /*
     void OnCollisionEnter2D(Collision2D collision)
     {
         JohnMovement john = collision.collider.GetComponent<JohnMovement>();
         GruntMovement grunt = collision.collider.GetComponent<GruntMovement>();
         
     }
+    */
 
     public void Hit(){
-        Health = Health - 1;
-        if(Health == 0) Destroy(gameObject);
+        
+        Health = Health - 20;
+
+        GetComponent<BarraVida>().restarVida();
+
+        Debug.Log("Me has golpeado ! "+ Health);
+
+        if(Health == 0) 
+        {
+            Debug.Log("Fin  "+ Health);
+            Destroy(gameObject);
+        }
     }
 
     void FixedUpdate()
