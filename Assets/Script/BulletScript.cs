@@ -31,4 +31,24 @@ public class BulletScript : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    // Se lanza cada vez que el objeto Bullet/Bala colisione
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        JohnMovement john = collider.GetComponent<JohnMovement>();
+        GruntMovement grunt = collider.GetComponent<GruntMovement>();
+
+
+        if(john != null){ //hemos impactado con john
+            john.Hit();
+        }
+
+        if(grunt != null){//hemos impactado con grunt
+            grunt.Hit();
+        }
+
+        DestroyBullet();
+        
+    }
+
 }

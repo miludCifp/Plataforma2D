@@ -8,6 +8,7 @@ public class GruntMovement : MonoBehaviour
     public GameObject BulletPrefab;
     private float LastShoot;
     private Rigidbody2D Rigidbody2D;
+    private int Health = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,10 @@ public class GruntMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Si John esta muerto, return
+        if(John == null){
+            return;
+        }
 
         Vector3 direction = John.transform.position - transform.position;
         // Cambiamos la dirección del enemigo para que mire a donde esta John
@@ -44,6 +49,11 @@ public class GruntMovement : MonoBehaviour
         Vector3 direction = new Vector3(transform.localScale.x, 0.0f, 0.0f);
         GameObject bullet = Instantiate(BulletPrefab, transform.position + direction * 0.1f, Quaternion.identity);
         bullet.GetComponent<BulletScript>().SetDirection(direction);
+    }
+
+    public void Hit(){
+        Health = Health - 1;
+        if(Health == 0) Destroy(gameObject);
     }
     void FixedUpdate()
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movimiento_EjeX : MonoBehaviour
+public class JohnMovement : MonoBehaviour
 {
 
     private Rigidbody2D Rigidbody2D;
@@ -14,6 +14,7 @@ public class Movimiento_EjeX : MonoBehaviour
     private Animator Animator;
     public GameObject prefabBullet;
     private float LastShoot;
+    private int Health = 5;
 
 
     void Start()
@@ -93,6 +94,19 @@ public class Movimiento_EjeX : MonoBehaviour
     { 
         Rigidbody2D.AddForce(Vector2.up * JumpForce);
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        JohnMovement john = collision.collider.GetComponent<JohnMovement>();
+        GruntMovement grunt = collision.collider.GetComponent<GruntMovement>();
+        
+    }
+
+    public void Hit(){
+        Health = Health - 1;
+        if(Health == 0) Destroy(gameObject);
+    }
+
     void FixedUpdate()
     {
         Rigidbody2D.velocity = new Vector2(horizontal, Rigidbody2D.velocity.y);

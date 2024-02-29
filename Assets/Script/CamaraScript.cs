@@ -14,6 +14,11 @@ public class CamaraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Si John esta muerto, return
+        if(John == null){
+            return;
+        }
+
         Vector3 position = transform.position;
         position.x = John.transform.position.x;
         transform.position = position;
