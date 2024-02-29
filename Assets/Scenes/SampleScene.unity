@@ -426,7 +426,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ccb653682797854c8dd964d24767d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Grunt: {fileID: 0}
+  John: {fileID: 104678818}
+  BulletPrefab: {fileID: 4472915689769580883, guid: 9557666069ea38f49a7e75020608211a, type: 3}
 --- !u!70 &186929405
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
