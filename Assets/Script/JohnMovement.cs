@@ -105,9 +105,9 @@ public class JohnMovement : MonoBehaviour
     }
     */
 
-    public void Hit(){
+    public void Hit(int daño){
         
-        Health = Health - 20;
+        Health = Health - daño;
 
         GetComponent<BarraVida>().restarVida();
 
