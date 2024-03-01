@@ -9,6 +9,8 @@ public class BarraVida : MonoBehaviour
     public float vidaActual;
     public float vidaMaxima;
 
+    public Text txtVidaActual;
+
     // Update is called once per frame
     void Update()
     {
@@ -19,6 +21,10 @@ public class BarraVida : MonoBehaviour
         vidaActual = vidaActual - 20;
 
         barraVd.fillAmount = vidaActual / vidaMaxima;
+
+        // Cargar aqui la vida actual en el objeto Text
+        //txtVidaActual.Text(barraVd.fillAmount.toString());
+
 
         Debug.Log("Vida actual :  " + vidaActual);
     }

@@ -119,7 +119,7 @@ public class JohnMovement : MonoBehaviour
             Destroy(gameObject);
 
             // Cuando muere muestro la escena GameOver
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(1);
 
         }
     }
