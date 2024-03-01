@@ -17,15 +17,34 @@ public class BarraVida : MonoBehaviour
         //barraVd.fillAmount = vidaActual / vidaMaxima;
     }
 
+/*
     public void restarVida(){
         vidaActual = vidaActual - 20;
 
-        barraVd.fillAmount = vidaActual / vidaMaxima;
+        float vdActual = barraVd.fillAmount = vidaActual / vidaMaxima;
 
         // Cargar aqui la vida actual en el objeto Text
-        //txtVidaActual.Text(barraVd.fillAmount.toString());
+
+        txtVidaActual = FindObjectOfType<TxtVidaActual>();
+
+        txtVidaActual.Text(vdActual.toString());
 
 
         Debug.Log("Vida actual :  " + vidaActual);
+    }
+    */
+
+
+
+    public void restarVida()
+    {
+        vidaActual -= 20f;
+        float vdActual = vidaActual / vidaMaxima;
+        barraVd.fillAmount = vdActual;
+
+        // Cargar aquí la vida actual en el objeto Text
+        txtVidaActual.text = "Vida actual: " + vidaActual.ToString();
+
+        Debug.Log("Vida actual: " + vidaActual);
     }
 }
