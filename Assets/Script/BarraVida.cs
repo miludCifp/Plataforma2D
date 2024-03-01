@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BarraVida : MonoBehaviour
 {
     public Image barraVd;
     public float vidaActual;
     public float vidaMaxima;
+
+    public TextMeshProUGUI txtVidaActual;
 
     // Update is called once per frame
     void Update()
@@ -19,12 +22,10 @@ public class BarraVida : MonoBehaviour
     public void restarVida(){
         vidaActual = vidaActual - 20;
 
-        float vdActual = barraVd.fillAmount = vidaActual / vidaMaxima;
+        barraVd.fillAmount = vidaActual / vidaMaxima;
 
         // Cargar aqui la vida actual en el objeto Text
-        //txtVidaActual = FindObjectOfType<TxtVidaActual>();
-        //txtVidaActual.text = "Vida actual: " + vidaActual.ToString();
-
+        txtVidaActual.text = vidaActual+" %";
 
         Debug.Log("Vida actual :  " + vidaActual);
     }
